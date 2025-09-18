@@ -57,9 +57,40 @@ String pickedSSID;
 String helloName;
 
 const char index_html[] PROGMEM = R"=====(<!DOCTYPE html>
-<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Captive Portal</title>
-<style>body{background:#efefef;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:20px}form{margin-top:16px}input{padding:8px;font-size:16px}button{padding:8px 12px;font-size:16px}</style>
-</head><body><h1>Hello!</h1><form action="/hello" method="GET"><label>Name: <input name="name" maxlength="32" autofocus></label> <button type="submit">Submit</button></form></body></html>)=====";
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Captive Portal</title>
+    <style>
+      body {
+        background: #efefef;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        margin: 20px;
+      }
+      form {
+        margin-top: 16px;
+      }
+      input {
+        padding: 8px;
+        font-size: 16px;
+      }
+      button {
+        padding: 8px 12px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello!</h1>
+    <form action="/hello" method="GET">
+      <label>
+        Name:
+        <input name="name" maxlength="32" autofocus>
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>)=====";
 
 const int RSSI_THRESHOLDS[4] = { -85, -75, -67, -60 };
 const char* CUSTOM_SSIDS[] = { "ESP32 Wifi", "Free WiFi", "Guest AP", "My Portal", "Cafe Hotspot" };
@@ -427,3 +458,4 @@ void loop(){
 
   delay(10);
 }
+
